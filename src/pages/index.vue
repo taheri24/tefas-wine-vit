@@ -2,26 +2,49 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
-
+import {useAsync} from '../logic'
 const name = ref('')
-
 const router = useRouter()
 const go = () => {
   if (name.value)
     router.push(`/hi/${encodeURIComponent(name.value)}`)
 }
-
+const delay=(ms: number )=>{
+  return new Promise(resolve=>{
+    setTimeout(resolve,ms)
+  })
+}
+const api={  
+  async sayHello(person:string): string{
+    await delay(2000);
+  return `Hello:${person}`;
+}
+}
+const [sayHelloTo,isLoading,sayHello]=useAsync(api.sayHello);
 const { t } = useI18n()
 </script>
 
 <template>
-  <div>
+<div :v-loading="true">
+<h1 style="font-size:64px">{{sayHelloTo || 'click to below buttons'}}</h1>
+<h3>
+</h3>
+<p>
+  we use func 2sec delay for show loading
+</p>
+<el-button type="primary" @click="sayHello('Majid')">Hello#1</el-button>
+<el-button type="danger" @click="sayHello('Mohamand(or ali) in Every Family')">Hello#2</el-button>
+<el-button type="default" @click="sayHello('Negarin & Negin')">Hello#3</el-button>
+<el-button type="danger" @click="sayHello('Mohamand(or ali) in Every Family')">Hello#2</el-button>
+
+  <div v-loading="loading">
     <p class="text-4xl">
       <carbon-campsite class="inline-block" />
     </p>
     <p>
+
       <a rel="noreferrer" href="https://github.com/antfu/vitesse" target="_blank">
-        Vitesse
+        VitesseXX
       </a>
     </p>
     <p>
@@ -53,9 +76,12 @@ const { t } = useI18n()
       </button>
     </div>
   </div>
+</div>
 </template>
 
 <route lang="yaml">
 meta:
   layout: home
 </route>
+
+ 

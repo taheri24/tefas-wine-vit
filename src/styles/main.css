@@ -6,6 +6,7 @@ body,
   height: 100%;
   margin: 0;
   padding: 0;
+  direction:rtl;
 }
 
 html.dark {
@@ -40,4 +41,12 @@ html.dark {
     opacity-75 transition duration-200 ease-in-out
     hover:opacity-100 hover:text-teal-600;
   font-size: 0.9em;
+}
+.app-wrapper{
+  display: grid;
+  grid-template-columns:300px 1fr;
+}
+.sidebar-nav{
+  display:flex;
+  flex-direction: column;
 }

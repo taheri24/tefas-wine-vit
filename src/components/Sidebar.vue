@@ -12,21 +12,22 @@ const toggleLocales = () => {
 </script>
 
 <template>
-  <nav class="text-xl mt-6">
-    <router-link class="icon-btn mx-2" to="/" :title="t('button.home')">
+  <nav class="sidebar-nav">
+    <router-link   to="/" :title="t('button.home')">
       <carbon-campsite />
+    Home Page
     </router-link>
 
-    <a class="icon-btn mx-2" :title="t('button.toggle_dark')" @click="toggleDark">
+    <a    :title="t('button.toggle_dark')" @click="toggleDark">
       <carbon-moon v-if="isDark" />
       <carbon-sun v-else />
+      <p v-if="isDark" >Go Light</p>
+      <p v-else >Go Dark</p>
+{{t('button.toggle_dark')}}
     </a>
 
-    <a class="icon-btn mx-2" :title="t('button.toggle_langs')" @click="toggleLocales">
-      <carbon-language />
-    </a>
 
-    <router-link class="icon-btn mx-2" to="/about" :title="t('button.about')">
+    <router-link   to="/about" :title="t('button.about')">
       <carbon-dicom-overlay />
     </router-link>
 
