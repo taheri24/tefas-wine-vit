@@ -1,3 +1,7 @@
+@import 'element-plus/lib/theme-chalk/index.css';
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 @import './markdown.css';
 
 html,
@@ -9,9 +13,9 @@ body,
   direction:rtl;
 }
 
-html.dark {
+/*html.dark {
   background: #121212;
-}
+}*/
 
 #nprogress {
   pointer-events: none;
@@ -49,4 +53,7 @@ html.dark {
 .sidebar-nav{
   display:flex;
   flex-direction: column;
+  a{
+    margin:0.8rem 0;
+  }
 }
