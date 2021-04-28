@@ -2,6 +2,7 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+@import 'vazir-font/dist/font-face.css';
 @import './markdown.css';
 
 html,
@@ -11,12 +12,10 @@ body,
   margin: 0;
   padding: 0;
   direction:rtl;
+  font-family: Vazir,Arial;
 }
 
-/*html.dark {
-  background: #121212;
-}*/
-
+ 
 #nprogress {
   pointer-events: none;
 }
@@ -33,19 +32,7 @@ body,
   height: 2px;
 }
 
-.btn {
-  @apply px-4 py-1 rounded inline-block
-    bg-teal-600 text-white cursor-pointer
-    hover:bg-teal-700
-    disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50;
-}
-
-.icon-btn {
-  @apply inline-block cursor-pointer select-none
-    opacity-75 transition duration-200 ease-in-out
-    hover:opacity-100 hover:text-teal-600;
-  font-size: 0.9em;
-}
+ 
 .app-wrapper{
   display: grid;
   grid-template-columns:300px 1fr;
